@@ -95,6 +95,7 @@
                             if (!selectedItems.includes(currentItem)) {
                                 selectedItems.push(currentItem);
                                 currentItem.classList.toggle('selected');
+                                console.log("正在操作项目：" + item.getAttribute('id'));
                             }
                         }
                     }
@@ -109,19 +110,39 @@
             });
         });
 
-        // 添加按钮点击事件
-        jQuery('button#ASCM_addall').click(function(){
-            selectedItems.forEach((selectedItem) => {
-                addToCollection(selectedItem);
-            });
+// 添加按钮点击事件
+jQuery('button#ASCM_addall').click(function(){
+    if (shiftPressed) {
+        // 当按住Shift键时，执行多选操作
+        console.log("正在添加选定项目...");
+        selectedItems.forEach((selectedItem) => {
+            addToCollection(selectedItem);
         });
+    } else {
+        // 否则，添加全部项目
+        console.log("开始添加所有项目...");
+        itemChoices.forEach((item) => {
+            addToCollection(item);
+        });
+    }
+});
 
-        // 删除按钮点击事件
-        jQuery('button#ASCM_removeall').click(function(){
-            selectedItems.forEach((selectedItem) => {
-                window.RemoveChildFromCollection(selectedItem.getAttribute('id').replace('choice_MySubscribedItems_', ''));
-            });
+// 删除按钮点击事件
+jQuery('button#ASCM_removeall').click(function(){
+    if (shiftPressed) {
+        // 当按住Shift键时，执行多选操作
+        console.log("正在删除选定项目...");
+        selectedItems.forEach((selectedItem) => {
+            removeFromCollection(selectedItem);
         });
+    } else {
+        // 否则，删除全部项目
+        console.log("开始删除所有项目...");
+        itemChoices.forEach((item) => {
+            removeFromCollection(item);
+        });
+    }
+});
 
         function addToCollection(item){
             // 获取项目的相关数据

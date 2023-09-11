@@ -7,7 +7,7 @@
 // @match        https://steamcommunity.com/sharedfiles/managecollection/?id=*
 // @grant        none
 // @license      MIT
-// @log          修复一键添加删除没反应,添加操作项目的提示,f12打开控制台可查看
+// @log          修复一键添加删除没反应,添加操作项目的提示,f12打开控制台可查看.
 // ==/UserScript==
 
 (function() {

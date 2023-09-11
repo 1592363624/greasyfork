@@ -95,7 +95,7 @@
                             if (!selectedItems.includes(currentItem)) {
                                 selectedItems.push(currentItem);
                                 currentItem.classList.toggle('selected');
-                                console.log("正在操作项目：" + item.getAttribute('id'));
+                                // console.log("正在操作项目：" + item.getAttribute('id'));
                             }
                         }
                     }
@@ -116,13 +116,17 @@ jQuery('button#ASCM_addall').click(function(){
         // 当按住Shift键时，执行多选操作
         console.log("正在添加选定项目...");
         selectedItems.forEach((selectedItem) => {
+            const itemName = getItemName(selectedItem);
             addToCollection(selectedItem);
+            console.log("已添加项目：" + itemName);
         });
     } else {
         // 否则，添加全部项目
         console.log("开始添加所有项目...");
         itemChoices.forEach((item) => {
+            const itemName = getItemName(item);
             addToCollection(item);
+            console.log("已添加项目：" + itemName);
         });
     }
 });
@@ -133,16 +137,31 @@ jQuery('button#ASCM_removeall').click(function(){
         // 当按住Shift键时，执行多选操作
         console.log("正在删除选定项目...");
         selectedItems.forEach((selectedItem) => {
-            removeFromCollection(selectedItem);
+            const itemName = getItemName(selectedItem);
+            window.RemoveChildFromCollection(selectedItem.getAttribute('id').replace('choice_MySubscribedItems_', ''));
+            console.log("已删除项目：" + itemName);
         });
     } else {
         // 否则，删除全部项目
         console.log("开始删除所有项目...");
         itemChoices.forEach((item) => {
-            removeFromCollection(item);
+            const itemName = getItemName(item);
+            window.RemoveChildFromCollection(item.getAttribute('id').replace('choice_MySubscribedItems_', ''));
+            console.log("已删除项目：" + itemName);
         });
     }
 });
+
+// 获取项目名称的函数
+function getItemName(itemElement) {
+    const titleElement = itemElement.querySelector('.itemChoiceTitle');
+    if (titleElement) {
+        return titleElement.textContent.trim();
+    }
+    return "未知项目";
+}
+
+
 
         function addToCollection(item){
             // 获取项目的相关数据

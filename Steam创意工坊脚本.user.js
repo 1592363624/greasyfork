@@ -158,7 +158,7 @@ function getItemName(itemElement) {
     if (titleElement) {
         return titleElement.textContent.trim();
     }
-    return "未知项目";
+    return "(获取项目名失败)未知项目";
 }
 
 

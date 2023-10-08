@@ -8,7 +8,7 @@
 // @grant        none
 // @license      MIT
 // @log          修复一键添加删除没反应,添加操作项目的提示,f12打开控制台可查看.
-//GitHub         https://github.com/1592363624/greasyfork/blob/main/Steam创意工坊脚本.user.js
+// @GitHub         https://github.com/1592363624/greasyfork/blob/main/Steam创意工坊脚本.user.js
 // ==/UserScript==
 
 (function() {

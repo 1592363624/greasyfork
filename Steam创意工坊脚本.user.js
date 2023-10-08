@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         Steam创意工坊脚本
 // @namespace    http://52shell.ltd/
-// @version      1.4
+// @version      1.4.1
 // @description  一键自动添加删除集合项目
 // @author       Shell
 // @match        https://steamcommunity.com/sharedfiles/managecollection/?id=*
 // @grant        none
 // @license      MIT
 // @log          修复一键添加删除没反应,添加操作项目的提示,f12打开控制台可查看.
+//GitHub         https://github.com/1592363624/greasyfork/blob/main/Steam创意工坊脚本.user.js
 // ==/UserScript==
 
 (function() {

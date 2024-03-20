@@ -46,3 +46,9 @@ function showFloatingToast(message, duration) {
 }
 // 创建浮动提示框元素
 
+
+
+
+//使用方法
+// showFloatingToast('这是一个类似toast的弹窗', 3000);
+//使用方法
